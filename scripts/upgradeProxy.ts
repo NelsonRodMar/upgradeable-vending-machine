@@ -1,13 +1,13 @@
-import env, {ethers, network, upgrades } from "hardhat";
+import {ethers, network, upgrades } from "hardhat";
 require('dotenv').config();
 
 
 async function main() {
     const proxyAddress = process.env.PROXY_ADDRESS;
     console.log("Network name : ", network.name);
-    const VendingMachineV2 = await ethers.getContractFactory("VendingMachineV2");
+    const VendingMachineV3 = await ethers.getContractFactory("VendingMachineV3");
 
-    const proxy = await upgrades.upgradeProxy(proxyAddress, VendingMachineV2)
+    const proxy = await upgrades.upgradeProxy(proxyAddress, VendingMachineV3)
     await proxy.deployed();
 
     const implementationAddress = await upgrades.erc1967.getImplementationAddress(
