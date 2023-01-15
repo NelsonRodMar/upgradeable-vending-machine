@@ -27,3 +27,21 @@ npx hardhat run scripts/deploy.js
 ```bash
 npx hardhat verify THE_VENDINGMACHINEV1_IMPLEMENTATION_ADDRESS
 ```
+
+
+## Upgrade
+
+1. Complete in the .env file the V2 contract address
+
+
+2. Deploy the new implementation
+
+```bash
+npx hardhat run scripts/upgradeProxy.js
+```
+
+3. Verify the contract on Etherscan
+
+```bash
+npx hardhat verify THE_VENDINGMACHINEV2_IMPLEMENTATION_ADDRESS
+```
